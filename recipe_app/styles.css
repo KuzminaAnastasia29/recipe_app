@@ -1,0 +1,569 @@
+body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    
+    /* Контейнер */
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(6px);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+    
+    /* Заголовок */
+    h1 {
+      text-align: center;
+      color: #444;
+    }
+    
+    /* Форма */
+    form input[type="text"],
+    form input[type="number"],
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+      box-sizing: border-box;
+    }
+    
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+    
+    button[type="submit"],
+    #add-ingredient-btn {
+      background-color: #28a745;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    
+    button[type="submit"]:hover,
+    #add-ingredient-btn:hover {
+      background-color: #218838;
+    }
+    
+    /* Інгредієнти */
+    .ingredient-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    
+    .ingredient-row input {
+      flex: 1;
+    }
+    
+    /* Список рецептів */
+    #recipe-list {
+      margin-top: 40px;
+    }
+    
+    .recipe {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(4px);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-left: 6px solid #28a745;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+    
+    .recipe:hover {
+      transform: scale(1.01);
+    }
+    
+    .recipe h3 {
+      margin-top: 0;
+      color: #333;
+      cursor: pointer;
+      font-size: 1.4em;
+    }
+
+    .recipe h3:hover {
+      text-decoration: underline;
+    }
+    
+    /* Мета-інформація рецепту */
+    .recipe-meta {
+      margin: 8px 0 15px 0;
+      padding: 5px 0;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .recipe-meta small {
+      display: block;
+      line-height: 1.4;
+      color: #666;
+      font-style: italic;
+    }
+    
+    /* Кнопки дій */
+    .recipe button {
+      background-color: #007bff;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      margin-right: 5px;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+    
+    .recipe button:hover {
+      background-color: #0056b3;
+    }
+    
+    .delete-btn {
+      background-color: #dc3545 !important;
+    }
+    
+    .delete-btn:hover {
+      background-color: #c82333 !important;
+    }
+    
+    /* Поле пошуку */
+    #search {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 1em;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    /* Шапка */
+    .site-header {
+      padding: 15px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      top: 0;
+      z-index: 1000;
+    }
+
+    /* Контейнер шапки */
+    .header-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Заголовок */
+    .site-title {
+      font-family: 'Marck Script', cursive;
+      font-size: 2.5em;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    }
+
+    /* Кнопки в шапці */
+    .header-buttons {
+      display: flex;
+      gap: 10px;
+    }
+
+    .add-recipe-button, .auth-button {
+      background: rgba(40, 167, 69, 0.9);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1em;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(2px);
+      border: none;
+      cursor: pointer;
+    }
+
+    .add-recipe-button:hover, .auth-button:hover {
+      background: rgba(33, 136, 56, 1);
+      transform: scale(1.03);
+    }
+
+    .auth-button {
+      background: rgba(0, 123, 255, 0.9);
+    }
+
+    .auth-button:hover {
+      background: rgba(0, 86, 179, 1);
+    }
+
+    .recipe-details {
+      margin-top: 10px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Приховані елементи */
+    .hidden {
+      display: none !important;
+    }
+
+    /* Форма додавання рецепту */
+    .recipe-form-section {
+      margin-top: 30px;
+      padding-top: 30px;
+      border-top: 2px solid #e9ecef;
+    }
+
+    /* Стилі для сторінки авторизації */
+    .auth-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1600&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .auth-container {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(6px);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .auth-tabs {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.login-tab {
+      border-radius: 6px 0 0 6px;
+      background: #28a745;
+    }
+
+    .tab-btn.register-tab {
+      border-radius: 0 6px 6px 0;
+      background: #6c757d;
+    }
+
+    .tab-btn.active {
+      background: #28a745 !important;
+    }
+
+    .tab-btn:hover {
+      opacity: 0.8;
+    }
+
+    .error-message {
+      color: #dc3545;
+      text-align: center;
+      margin-top: 15px;
+      padding: 10px;
+      background: rgba(220, 53, 69, 0.1);
+      border-radius: 6px;
+      border: 1px solid rgba(220, 53, 69, 0.2);
+    }
+
+    /* Стилі для адміністративної панелі */
+.admin-panel {
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.admin-panel h2 {
+  color: #343a40;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.admin-actions {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.admin-btn {
+  background: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  margin: 5px;
+  transition: background-color 0.3s;
+}
+
+.admin-btn:hover {
+  background: #5a6268;
+}
+
+.admin-stats {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.stat-item h4 {
+  color: #495057;
+  margin-bottom: 15px;
+}
+
+.stat-item p {
+  margin: 5px 0;
+  color: #6c757d;
+}
+
+.user-card {
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s;
+}
+
+.user-card:hover {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.user-card.admin-user {
+  border-left: 4px solid #ffc107;
+  background: linear-gradient(to right, #fff8e1, white);
+}
+
+.user-info h4 {
+  margin: 0 0 10px 0;
+  color: #343a40;
+  font-size: 1.2em;
+}
+
+.user-info p {
+  margin: 5px 0;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.user-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: all 0.3s;
+  min-width: 150px;
+}
+
+.danger-btn {
+  background: #dc3545;
+  color: white;
+}
+
+.danger-btn:hover {
+  background: #c82333;
+  transform: translateY(-1px);
+}
+
+.info-btn {
+  background: #17a2b8;
+  color: white;
+}
+
+.info-btn:hover {
+  background: #138496;
+  transform: translateY(-1px);
+}
+
+.danger-btn.small {
+  padding: 6px 12px;
+  font-size: 0.8em;
+  min-width: auto;
+}
+
+.no-recipes {
+  color: #6c757d;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Стилі для модального вікна */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.user-recipes-modal {
+  background: white;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  background: #f8f9fa;
+  padding: 20px;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #343a40;
+}
+
+.close-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  transition: background-color 0.3s;
+}
+
+.close-btn:hover {
+  background: #c82333;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.recipe-preview {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.recipe-preview h4 {
+  margin: 0 0 10px 0;
+  color: #343a40;
+}
+
+.recipe-preview p {
+  margin: 5px 0;
+  color: #6c757d;
+  font-size: 0.9em;
+}
+
+.recipe-actions {
+  margin-top: 10px;
+  text-align: right;
+}
+
+/* Адаптивні стилі */
+@media (max-width: 768px) {
+  .user-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+  }
+  
+  .user-actions {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .user-actions button {
+    flex: 1;
+    margin: 0 5px;
+    min-width: auto;
+  }
+  
+  .admin-panel {
+    padding: 15px;
+    margin: 10px;
+  }
+  
+  .user-recipes-modal {
+    width: 95%;
+    margin: 10px;
+  }
+  
+  .modal-header, .modal-body {
+    padding: 15px;
+  }
+}
+
+/* Стилі для підказки на сторінці авторизації */
+.auth-container code {
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  color: #495057;
+}s-management h3 {
+  color: #495057;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Книга рецептів</title>
+  <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <h1 class="site-title">Мій Кулінарний Щоденник</h1>
+      <div class="header-buttons">
+        <a href="#add-form" class="add-recipe-button hidden" id="add-recipe-btn">➕ Додати рецепт</a>
+        <button class="auth-button" id="auth-btn">Вхід/Реєстрація</button>
+        <button class="auth-button hidden" id="logout-btn">Вийти</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container">
+    <!-- Секція для неавторизованих користувачів -->
+    <div id="guest-section">
+      <h1>Ласкаво просимо до Книги рецептів!</h1>
+      <p style="text-align: center; font-size: 1.2em; margin: 30px 0;">
+        Увійдіть в систему або зареєструйтеся, щоб почати додавати і зберігати свої улюблені рецепти.
+      </p>
+    </div>
+
+    <!-- Секція для авторизованих користувачів -->
+    <div id="user-section" class="hidden">
+      <h1>Книга рецептів</h1>
+      <input type="text" id="search" placeholder="Пошук рецепту..." />
+      <div id="recipe-list"></div>
+
+      <div class="recipe-form-section">
+        <h2 id="add-form">Додати новий рецепт</h2>
+        <form id="add-recipe-form">
+          <input type="text" id="title" placeholder="Назва рецепту" required />
+          <div id="ingredients-container">
+            <h4>Інгредієнти</h4>
+            <div class="ingredient-row">
+              <input type="text" placeholder="Назва інгредієнта" class="ingredient-name" required />
+              <input type="number" placeholder="грамів" class="ingredient-amount" required />
+            </div>
+          </div>
+          <button type="button" id="add-ingredient-btn">+ Додати інгредієнт</button>
+          <textarea id="instructions" placeholder="Інструкції приготування..." required></textarea>
+          <button type="submit" id="submit-btn">Додати рецепт</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
